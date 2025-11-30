@@ -4,10 +4,18 @@
  */
 package proyecto.estructura;
 
+import proyecto.pojo.Producto;
 /**
  *
  * @author aleja
  */
 public class Nodo {
+    Producto producto;
+    Nodo izquierdo, derecho;
+    
+    public Nodo(Producto producto) {
+        this.producto = producto;
+        izquierdo = derecho = null;
+    }
     
 }

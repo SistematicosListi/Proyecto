@@ -8,14 +8,14 @@ package proyecto.interfaces;
  *
  * @author aleja
  */
-public class ProductosGUI extends javax.swing.JFrame {
+public class inventarioApp extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ProductosGUI.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(inventarioApp.class.getName());
 
     /**
      * Creates new form ProductosGUI
      */
-    public ProductosGUI() {
+    public inventarioApp() {
         initComponents();
     }
 
@@ -66,7 +66,7 @@ public class ProductosGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new ProductosGUI().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new inventarioApp().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
