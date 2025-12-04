@@ -9,5 +9,5 @@ package proyecto.utils;
  *
  * @author aleja
  */
-public class JsonUtils {
+public class ProductosUtils {
 }

@@ -4,15 +4,16 @@
  */
 package proyecto;
 
-import proyecto.utils.JsonUtils;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import proyecto.utils.ProductosUtils;
 import proyecto.inventario.InventarioManager;
-import proyecto.estructura.ABB;
-import proyecto.estructura.Nodo;
-import proyecto.interfaces.inventarioApp;
+
+
 import proyecto.pojo.Eliminacion;
 import proyecto.pojo.Producto;
 
 import javax.swing.SwingUtilities;  // Import faltante para SwingUtilities
+import proyecto.interfaces.PrincipalView;
 
 /**
  *
@@ -24,10 +25,10 @@ public class Proyecto {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-            SwingUtilities.invokeLater(() -> {
-        new inventarioApp().setVisible(true);
-    });
+        
+        
+         new PrincipalView().setVisible(true);
+         FlatMacDarkLaf.setup();
 
     }
     
