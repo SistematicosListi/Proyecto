@@ -13,7 +13,7 @@ import proyecto.pojo.Eliminacion;
 import proyecto.pojo.Producto;
 
 import javax.swing.SwingUtilities;  // Import faltante para SwingUtilities
-import proyecto.interfaces.PrincipalView;
+import proyecto.InterfazGrafica.PrincipalView;
 
 /**
  *
