@@ -10,14 +10,16 @@ import javax.swing.table.DefaultTableModel;
 import proyecto.ABB_Productos.Estructura.ABB;
 import proyecto.MetodosOrdenamiento.LogaritmicosUtils;
 import static proyecto.Proyecto.arbol;
+import proyecto.historial.HistorialManager;
+import proyecto.historial.Operacion;
 import proyecto.pojo.Eliminado;
 
 import proyecto.pojo.Producto;
 
 /**
- *
+ *Esta clase gestiona los metodos para gestionar productos 
  * @author aleja
- * Esta clase gestiona los productos
+ * 
  */
 public class InventarioManager {
     
@@ -28,8 +30,7 @@ public class InventarioManager {
     
     
     /**
-     * Constructor
-     * @param arbol  
+     * Constructor sin parametros de inventario
      */
     public InventarioManager(){
         
@@ -44,6 +45,7 @@ public class InventarioManager {
      */
     public void agregarProducto(Producto p){
         arbol.insertar(p);
+        HistorialManager.getInstance().agregarOperacion(new Operacion("Agregó producto: " + p.getNombre() + " (Clave: " + p.getClave() + ")"));
     }
     
     /**
@@ -77,13 +79,23 @@ public class InventarioManager {
         encontrado.setNombre(nombre);
         encontrado.setCantidad(cantidad);
         encontrado.setPrecio(precio);
+        HistorialManager.getInstance().agregarOperacion(new Operacion("Editó producto: " + 
+                                                                    encontrado.getNombre() + 
+                                                                    " (Clave: " + encontrado.getClave()+
+                                                                    ") - Nuevo nombre: " + nombre +  
+                                                                     ", Cantidad: " + cantidad +   
+                                                                     ", Precio: " + precio));
         
        return true;
         
     }
-    
+    /**
+     * Metodo para eliminar productos
+     * @param clave 
+     */
     public void eliminarProducto(String clave){
         arbol.eliminar(clave);
+        HistorialManager.getInstance().agregarOperacion(new Operacion("Eliminó producto con clave: " + clave));
     }
             
     /**

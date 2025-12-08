@@ -15,17 +15,17 @@ import proyecto.persistencia.productoPersistencia;
 import proyecto.pojo.Producto;
 
 /**
- *
+ *Interfaz para agregar productos
  * @author juego
  */
 public class AgregarView extends javax.swing.JFrame {
 
+    
+    
+    
     /**
-     * Creates new form AgregarView
+     * Constructor sin parametros para la interfaz agregar
      */
-    
-    
-    
     public AgregarView() {
         initComponents();
     }
@@ -254,7 +254,10 @@ public class AgregarView extends javax.swing.JFrame {
     private void txt_cantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cantidadActionPerformed
         
     }//GEN-LAST:event_txt_cantidadActionPerformed
-
+    /**
+     * Action para que agregue el producto
+     * @param evt 
+     */
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
         try{
             String clave = txt_clave.getText();
@@ -316,16 +319,17 @@ public class AgregarView extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btn_agregarActionPerformed
-
+    /**
+     * Action para cuando se presione el boton de salir
+     * @param evt 
+     */
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         this.dispose();
         new PrincipalView().setVisible(true);
            
     }//GEN-LAST:event_btn_salirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

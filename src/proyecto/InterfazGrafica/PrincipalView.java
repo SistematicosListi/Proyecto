@@ -18,7 +18,7 @@ public class PrincipalView extends javax.swing.JFrame {
     
    
     /**
-     * Creates new form ProductosGUI
+     * Constructor sin parametros de la ventana principal
      */
     Color mouseEnterColor = new Color(25,118,120);
     Color mouseExitColor = new Color(37,37,38);
@@ -52,6 +52,8 @@ public class PrincipalView extends javax.swing.JFrame {
         jlabel_buscar1 = new javax.swing.JLabel();
         btn_eliminar = new javax.swing.JPanel();
         jlabel_eliminar = new javax.swing.JLabel();
+        btn_logs = new javax.swing.JPanel();
+        jlabel_logs = new javax.swing.JLabel();
         texto_bienvenida = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -214,6 +216,27 @@ public class PrincipalView extends javax.swing.JFrame {
 
         sidebar_panel.add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 200, 60));
 
+        btn_logs.setBackground(new java.awt.Color(37, 37, 38));
+        btn_logs.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_logs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jlabel_logs.setFont(new java.awt.Font("HP Simplified Hans", 1, 14)); // NOI18N
+        jlabel_logs.setText("Historial Logs");
+        jlabel_logs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlabel_logsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jlabel_logsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jlabel_logsMouseExited(evt);
+            }
+        });
+        btn_logs.add(jlabel_logs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 50));
+
+        sidebar_panel.add(btn_logs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 200, 50));
+
         getContentPane().add(sidebar_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 200, 650));
 
         texto_bienvenida.setBackground(new java.awt.Color(51, 0, 255));
@@ -248,7 +271,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btn_agregar.setBackground(mouseEnterColor);
     }//GEN-LAST:event_texto_bienvenidaMouseEntered
     /**
-     * 
+     * Metodo para que cuando el mouse salga, regrese a su color original
      * @param evt 
      */
     private void texto_bienvenidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_texto_bienvenidaMouseExited
@@ -360,9 +383,20 @@ public class PrincipalView extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jlabel_eliminarMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jlabel_logsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_logsMouseEntered
+        btn_logs.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_jlabel_logsMouseEntered
+
+    private void jlabel_logsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_logsMouseExited
+        btn_logs.setBackground(mouseExitColor);
+    }//GEN-LAST:event_jlabel_logsMouseExited
+
+    private void jlabel_logsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_logsMouseClicked
+        this.dispose();
+        new LogView().setVisible(true);
+    }//GEN-LAST:event_jlabel_logsMouseClicked
+
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -371,6 +405,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JPanel btn_agregar;
     private javax.swing.JPanel btn_editar;
     private javax.swing.JPanel btn_eliminar;
+    private javax.swing.JPanel btn_logs;
     private javax.swing.JPanel btn_mostrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -380,6 +415,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel jlabel_buscar1;
     private javax.swing.JLabel jlabel_editar;
     private javax.swing.JLabel jlabel_eliminar;
+    private javax.swing.JLabel jlabel_logs;
     private javax.swing.JLabel jlabel_mostrar;
     private javax.swing.JPanel panel_barraAccion;
     private javax.swing.JPanel panel_titulo;

@@ -10,7 +10,7 @@ import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import proyecto.utils.ProductosUtils;
+
 import proyecto.inventario.InventarioManager;
 
 
@@ -27,7 +27,7 @@ import proyecto.persistencia.productoPersistencia;
 
 
 /**
- *
+ *Clase main del Poryecto
  * @author aleja
  */
 public class Proyecto {
@@ -41,6 +41,7 @@ public class Proyecto {
     public static  String ARCHIVO1 = "Productos.json";
     public static final String ARCHIVO2 = "productosEliminados.json";
     /**
+     * Metodo main
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {

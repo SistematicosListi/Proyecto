@@ -16,14 +16,14 @@ import proyecto.persistencia.productoPersistencia;
 import proyecto.pojo.Producto;
 
 /**
- *Clase para mostrar los productos con recorrido Inorde o metodos de ordenamiento (MergeSort y QuickSort).
+ *Interfaz para mostrar los productos con recorrido Inorde o metodos de ordenamiento (MergeSort y QuickSort).
  * @author juego
  */
 public class EditarView extends javax.swing.JFrame {
     private List<Producto> productos;
 
     /**
-     * 
+     * Constructor de EditarView
      * @throws FileNotFoundException 
      */
     public EditarView() throws FileNotFoundException {
@@ -132,7 +132,10 @@ public class EditarView extends javax.swing.JFrame {
         this.dispose();
         new PrincipalView().setVisible(true);
     }//GEN-LAST:event_btn_salirActionPerformed
-
+    /**
+     * Metodo para editar y actualice la tabla
+     * @param evt 
+     */
     private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
         int indexselected = this.tbl_productos.getSelectedRow();
         if(indexselected < 0){

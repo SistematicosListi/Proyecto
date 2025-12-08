@@ -10,9 +10,10 @@ import proyecto.ABB_Productos.Estructura.Nodo;
 import proyecto.pojo.Producto;
 
 /**
- *
+ * Clase para crear el Arbol 
  * @author juego
  */
+  
 public class ABB {
     private Nodo raiz;
     private int comparaciones;
@@ -49,17 +50,17 @@ public class ABB {
     
     /**
      * 
-     * @param valor 
+     * @param valor Es el producto que se va a insertar
      * Inserta productos al arbol
      */
     public void insertar(Producto valor){
         this.raiz = crearNodoRecursivo(raiz, valor); //inserta los productos, pero primero llama de forma recursiva al otro metodo y el primero cumplira el if si esta vacio el nodo o el valor y se insertara la raiz
     }
     
-    /** metodo que crea los nodos de forma recursiva 
+    /** Metodo que crea los nodos de forma recursiva 
      * 
-     * @param nodo
-     * @param valor
+     * @param nodo es el nodo por el cual empieza (La raiz), ya sea el arbol o el subarbol
+     * @param valor el nodo el cual se va a introducir
      * @return 
      */
     private Nodo crearNodoRecursivo(Nodo nodo, Producto valor){
@@ -80,7 +81,7 @@ public class ABB {
     
     /** busca un producto en el arbol 
      * 
-     * @param valor
+     * @param valor el producto o nodo que se va a buscar
      * @return 
      */
     public Producto buscar(Producto valor){
@@ -99,8 +100,8 @@ public class ABB {
     
     /** metodo recursivo que hace la busqueda 
      * 
-     * @param nodo
-     * @param valor
+     * @param nodo es la raiz del arbol o por donde empezará a buscar
+     * @param valor el producto el cual se esta buscando o nodo
      * @return 
      */
     private Producto buscarRecursivo(Nodo nodo, Producto valor){
@@ -126,8 +127,8 @@ public class ABB {
     
     /** 
      * Ordena los valores del arbol en una lista le indica que metodo usar, si inordenn ascedente o descendete
-     * @param ascendente
-     * @return 
+     * @param ascendente indicamos en que orden se va a ordenar los datos
+     * @return regresa la lista con los datos ya ordenados
      */
     public List<Producto> ordenarDatos(boolean ascendente){
         List<Producto> listaordenada = new ArrayList<>();
@@ -141,8 +142,8 @@ public class ABB {
 
     /** recorre el arbol de forma ascendente
      * 
-     * @param nodo
-     * @param lista 
+     * @param nodo es la raiz del arbol 
+     * @param lista La lista en la cual se ira introduciendo los datos en inorden
      */ 
      
     public void recorrerInordenRecursivo(Nodo nodo, List<Producto> lista){
@@ -155,8 +156,8 @@ public class ABB {
     
     /** recorre el arbol de forma descendente
      * 
-     * @param nodo
-     * @param lista 
+     * @param nodo La raiz del arbol
+     * @param lista La lista en la cual se ira introduciendo los datos en inorden
      */
     public void recorrerInordenDescRecursivo(Nodo nodo, List<Producto> lista){
         if (nodo != null){
@@ -167,15 +168,15 @@ public class ABB {
     }
     /**
      * 
-     * @param clave 
+     * @param clave la clave del objeto que se quiere sacar del arbol
      */
     public void eliminar(String clave){
         this.raiz = eliminarRecursivo(raiz, clave);
     }
     /**
      * 
-     * @param nodo
-     * @param clave
+     * @param nodo la raiz del arbol donde empezara a buscar
+     * @param clave la clave del producto el cual se quiere eliminar
      * @return 
      */
     private Nodo eliminarRecursivo(Nodo nodo, String clave){
@@ -201,7 +202,7 @@ public class ABB {
             if(nodo.getDerecho()== null){
                 return nodo.getIzquierdo();
             }
-            
+            //sustituye el valor eliminado por el minimo del subarbol
             Nodo sucesor = encontrarMinimo(nodo.getDerecho());
             nodo.setValor(sucesor.getValor());
             nodo.setDerecho(eliminarRecursivo(nodo.getDerecho(), sucesor.getValor().getClave()));
@@ -218,7 +219,11 @@ public class ABB {
         
 
     }
-
+    /**
+     * Metodo para buscar el valor minimo 
+     * @param nodo el nodo o raiz el cual se va a buscar, ya sea que se empiece por el subarbol izquierdo o derecho
+     * @return 
+     */
     private Nodo encontrarMinimo(Nodo nodo) {
         while (nodo.getIzquierdo() != null) {
             nodo = nodo.getIzquierdo();

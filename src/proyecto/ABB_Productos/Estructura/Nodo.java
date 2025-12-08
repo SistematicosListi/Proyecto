@@ -7,7 +7,7 @@ package proyecto.ABB_Productos.Estructura;
 import proyecto.pojo.Producto;
 
 /**
- *  Clase Nodo para 
+ *  Clase Nodo para el ABB 
  * @author juego
  */
 public class Nodo implements Comparable<Producto> {

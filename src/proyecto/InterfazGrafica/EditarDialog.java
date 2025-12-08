@@ -12,7 +12,7 @@ import proyecto.persistencia.productoPersistencia;
 import proyecto.pojo.Producto;
 
 /**
- *
+ *Dialog para poner los datos especificos del producto que se va a editar
  * @author juego
  */
 public class EditarDialog extends javax.swing.JDialog {

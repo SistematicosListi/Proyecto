@@ -15,19 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 import proyecto.pojo.Producto;
 
+
 /**
- *
- * @author juego
- */
-/**
- * clase que se encarga de guardar y leer los carros del archivo json
+ * clase que se encarga de guardar y cargar los productos del archivo Json
  */
 public class productoPersistencia {
     
     /** 
      * Metodo para guardarlos en Json
      * @param nombreArchivo
-     * @param listaVehiculos 
+     * @param listaProductos
      */
     public static void guardarComoJson(String nombreArchivo, List<Producto> listaProductos){
         Gson gson = new Gson();

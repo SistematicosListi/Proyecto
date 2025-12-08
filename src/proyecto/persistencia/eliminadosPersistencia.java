@@ -12,7 +12,7 @@ import java.util.List;
 import proyecto.pojo.Eliminado; // Importación adaptada a la nueva clase
 
 /**
- * Clase que se encarga de guardar y leer los registros de Eliminacion del archivo json.
+ * Clase que se encarga de guardar y cargar los registros de Eliminacion del archivo json.
  */
 public class eliminadosPersistencia {
     
@@ -53,7 +53,7 @@ public class eliminadosPersistencia {
             lista = gson.fromJson(lector, tipoLista);
             
             lector.close();
-            System.out.println("Archivo JSON de historial cargado de forma correcta.");
+            System.out.println("Archivo JSON de historial eliminados cargado de forma correcta.");
             
         } catch(FileNotFoundException ex){
              // Si el archivo no existe, no es un error critico, devuelve una lista vacía.

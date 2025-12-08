@@ -9,7 +9,7 @@ import static proyecto.Proyecto.inventario;
 import proyecto.pojo.Producto;
 
 /**
- *
+ *Interfaz para buscar producto por su clave
  * @author juego
  */
 public class BuscarView extends javax.swing.JFrame {
@@ -152,7 +152,10 @@ public class BuscarView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Action para salir a la ventana principañ
+     * @param evt 
+     */
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         new PrincipalView().setVisible(true);
         this.dispose();
@@ -162,7 +165,7 @@ public class BuscarView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txt_claveActionPerformed
     /**
-     * 
+     * Action para buscar el producto con la clave
      * @param evt 
      */
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed

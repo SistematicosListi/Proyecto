@@ -9,7 +9,7 @@ import static proyecto.Proyecto.inventario;
 import proyecto.pojo.Producto;
 
 /**
- *
+ *Interfaz para eliminar por clave 
  * @author juego
  */
 public class EliminarView extends javax.swing.JFrame {

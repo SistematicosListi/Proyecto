@@ -14,7 +14,7 @@ import proyecto.inventario.InventarioManager;
 import proyecto.persistencia.productoPersistencia;
 
 /**
- *Clase para mostrar los productos con recorrido Inorde o metodos de ordenamiento (MergeSort y QuickSort).
+ *Interfaz para mostrar los productos con recorrido Inorde o metodos de ordenamiento (MergeSort y QuickSort).
  * @author juego
  */
 public class MostrarView extends javax.swing.JFrame {

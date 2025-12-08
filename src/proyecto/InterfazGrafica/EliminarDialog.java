@@ -16,7 +16,7 @@ import proyecto.pojo.Eliminado;
 import proyecto.pojo.Producto;
 
 /**
- *
+ *Dialog para especificar porque se elimino el producto
  * @author juego
  */
 public class EliminarDialog extends javax.swing.JDialog {

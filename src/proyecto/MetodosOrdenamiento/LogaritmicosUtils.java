@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * 
+ * Clase que maneja los tipos de ordenaiento logaritmicos (QuickSort y MergeSort)
  * @author juego
  * @param <T> 
  */
