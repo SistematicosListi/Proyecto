@@ -47,8 +47,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jlabel_editar = new javax.swing.JLabel();
         panel_barraAccion = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        btn_Eliminar = new javax.swing.JPanel();
-        jlabel_eliminar = new javax.swing.JLabel();
         btn_Buscar = new javax.swing.JPanel();
         jlabel_buscar = new javax.swing.JLabel();
         texto_bienvenida = new javax.swing.JLabel();
@@ -136,7 +134,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jlabel_editar.setFont(new java.awt.Font("HP Simplified Hans", 1, 14)); // NOI18N
         jlabel_editar.setForeground(new java.awt.Color(199, 199, 199));
         jlabel_editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/editar.png"))); // NOI18N
-        jlabel_editar.setText("Editar");
+        jlabel_editar.setText("Editar/Eliminar");
         jlabel_editar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jlabel_editarMouseClicked(evt);
@@ -162,32 +160,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
         sidebar_panel.add(panel_barraAccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
 
-        btn_Eliminar.setBackground(new java.awt.Color(37, 37, 38));
-        btn_Eliminar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_EliminarMouseEntered(evt);
-            }
-        });
-        btn_Eliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jlabel_eliminar.setBackground(new java.awt.Color(199, 199, 199));
-        jlabel_eliminar.setFont(new java.awt.Font("HP Simplified Hans", 1, 14)); // NOI18N
-        jlabel_eliminar.setForeground(new java.awt.Color(199, 199, 199));
-        jlabel_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/eliminar.png"))); // NOI18N
-        jlabel_eliminar.setText("Eliminar");
-        jlabel_eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jlabel_eliminarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jlabel_eliminarMouseExited(evt);
-            }
-        });
-        btn_Eliminar.add(jlabel_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
-
-        sidebar_panel.add(btn_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 200, 60));
-
         btn_Buscar.setBackground(new java.awt.Color(37, 37, 38));
         btn_Buscar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_Buscar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -207,7 +179,7 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         btn_Buscar.add(jlabel_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
 
-        sidebar_panel.add(btn_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 200, 60));
+        sidebar_panel.add(btn_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 200, 60));
 
         getContentPane().add(sidebar_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 200, 650));
 
@@ -277,29 +249,8 @@ public class PrincipalView extends javax.swing.JFrame {
     private void jlabel_editarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_editarMouseExited
         btn_editar.setBackground(mouseExitColor);
     }//GEN-LAST:event_jlabel_editarMouseExited
-    /**
-     * Metodo para que cuando el mouse pase por encima, cambie de color
-     * @param evt 
-     */
-    private void jlabel_eliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_eliminarMouseEntered
-        btn_Eliminar.setBackground(mouseEnterColor);
-       
-    }//GEN-LAST:event_jlabel_eliminarMouseEntered
-    /**
-     * Metodo para que cuando el mouse salga , regrese a su color original
-     * @param evt 
-     */
-    private void jlabel_eliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_eliminarMouseExited
-        btn_Eliminar.setBackground(mouseExitColor);
-    }//GEN-LAST:event_jlabel_eliminarMouseExited
-    /**
-     * Metodo para que cuando el mouse pase por encima, cambie de color
-     * @param evt 
-     */
-    private void btn_EliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EliminarMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_EliminarMouseEntered
-    /**
+
+   /**
      * Metodo para que cuando el mouse pase por encima, cambie de color
      * @param evt 
      */
@@ -372,7 +323,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btn_Buscar;
-    private javax.swing.JPanel btn_Eliminar;
     private javax.swing.JPanel btn_agregar;
     private javax.swing.JPanel btn_editar;
     private javax.swing.JPanel btn_mostrar;
@@ -383,7 +333,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel jlabel_agregarP1;
     private javax.swing.JLabel jlabel_buscar;
     private javax.swing.JLabel jlabel_editar;
-    private javax.swing.JLabel jlabel_eliminar;
     private javax.swing.JLabel jlabel_mostrar;
     private javax.swing.JPanel panel_barraAccion;
     private javax.swing.JPanel panel_titulo;
