@@ -4,11 +4,13 @@
  */
 package proyecto.inventario;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import proyecto.ABB_Productos.Estructura.ABB;
 import proyecto.MetodosOrdenamiento.LogaritmicosUtils;
 import static proyecto.Proyecto.arbol;
+import proyecto.pojo.Eliminado;
 
 import proyecto.pojo.Producto;
 
@@ -18,7 +20,8 @@ import proyecto.pojo.Producto;
  * Esta clase gestiona los productos
  */
 public class InventarioManager {
-
+    
+    public static List<Eliminado> historialEliminaciones = new ArrayList<>();
     
     
     

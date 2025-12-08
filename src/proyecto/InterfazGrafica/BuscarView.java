@@ -62,6 +62,7 @@ public class BuscarView extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/cerrar-sesion (1).png"))); // NOI18N
         btn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirActionPerformed(evt);

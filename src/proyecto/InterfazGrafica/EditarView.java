@@ -51,7 +51,6 @@ public class EditarView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btn_editar = new javax.swing.JButton();
-        btn_eliminar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_productos = new javax.swing.JTable();
@@ -93,17 +92,6 @@ public class EditarView extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btn_editar);
-
-        btn_eliminar.setBackground(new java.awt.Color(0, 122, 255));
-        btn_eliminar.setFont(new java.awt.Font("HP Simplified Hans", 1, 18)); // NOI18N
-        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/eliminar.png"))); // NOI18N
-        btn_eliminar.setText("Eliminar");
-        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_eliminarActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btn_eliminar);
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
@@ -178,55 +166,6 @@ public class EditarView extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btn_editarActionPerformed
-
-    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-        int filaSeleccionada = this.tbl_productos.getSelectedRow();
-    
-        if (filaSeleccionada < 0) {
-            JOptionPane.showMessageDialog(this,
-                "Debes seleccionar el producto que deseas eliminar.",
-                "Advertencia", 
-                JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-    
-    
-        DefaultTableModel model = (DefaultTableModel) this.tbl_productos.getModel();
-    
-    
-        String claveProducto = model.getValueAt(filaSeleccionada, 0).toString(); 
-    
-    
-        int confirmacion = JOptionPane.showConfirmDialog(
-            this, 
-            "¿Estás seguro de que deseas eliminar el producto con clave: " + claveProducto + "?", 
-            "Confirmar Eliminación", 
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.WARNING_MESSAGE
-        );
-    
-        if (confirmacion == JOptionPane.YES_OPTION) {
-        
-        //Llamar al méTODO para eliminar el producto
-       
-            inventario.eliminarProducto(claveProducto); 
-        
-        
-            JOptionPane.showMessageDialog(this, 
-                    "Producto con clave " + claveProducto + " eliminado con éxito.", 
-                    "Eliminación Exitosa", 
-                    JOptionPane.INFORMATION_MESSAGE);
-            mostrarTablaInorden();
-            
-        }
-        
-        try{
-            productoPersistencia.guardarComoJson(ARCHIVO1, 
-                                                arbol.ordenarDatos(true));
-        }catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }
-    }//GEN-LAST:event_btn_eliminarActionPerformed
         /**
      * metodo para mostrar la tabla, llamandolo desde inventario
      */
@@ -239,7 +178,6 @@ public class EditarView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_editar;
-    private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_salir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;

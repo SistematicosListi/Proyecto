@@ -29,9 +29,9 @@ public class productoPersistencia {
      * @param nombreArchivo
      * @param listaVehiculos 
      */
-    public static void guardarComoJson(String nombreArchivo, List<Producto> listaVehiculos){
+    public static void guardarComoJson(String nombreArchivo, List<Producto> listaProductos){
         Gson gson = new Gson();
-        String json = gson.toJson(listaVehiculos);
+        String json = gson.toJson(listaProductos);
         try {
             FileWriter escritor = new FileWriter(nombreArchivo);
             escritor.write(json);

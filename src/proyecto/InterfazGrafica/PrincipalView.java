@@ -48,7 +48,10 @@ public class PrincipalView extends javax.swing.JFrame {
         panel_barraAccion = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         btn_Buscar = new javax.swing.JPanel();
-        jlabel_buscar = new javax.swing.JLabel();
+        btn_Buscar1 = new javax.swing.JPanel();
+        jlabel_buscar1 = new javax.swing.JLabel();
+        btn_eliminar = new javax.swing.JPanel();
+        jlabel_eliminar = new javax.swing.JLabel();
         texto_bienvenida = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -134,7 +137,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jlabel_editar.setFont(new java.awt.Font("HP Simplified Hans", 1, 14)); // NOI18N
         jlabel_editar.setForeground(new java.awt.Color(199, 199, 199));
         jlabel_editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/editar.png"))); // NOI18N
-        jlabel_editar.setText("Editar/Eliminar");
+        jlabel_editar.setText("Editar");
         jlabel_editar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jlabel_editarMouseClicked(evt);
@@ -164,25 +167,52 @@ public class PrincipalView extends javax.swing.JFrame {
         btn_Buscar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_Buscar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jlabel_buscar.setBackground(new java.awt.Color(199, 199, 199));
-        jlabel_buscar.setFont(new java.awt.Font("HP Simplified Hans", 1, 14)); // NOI18N
-        jlabel_buscar.setForeground(new java.awt.Color(199, 199, 199));
-        jlabel_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/lupa.png"))); // NOI18N
-        jlabel_buscar.setText("Buscar ");
-        jlabel_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Buscar1.setBackground(new java.awt.Color(37, 37, 38));
+        btn_Buscar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_Buscar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btn_Buscar.add(btn_Buscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 200, 60));
+
+        jlabel_buscar1.setBackground(new java.awt.Color(199, 199, 199));
+        jlabel_buscar1.setFont(new java.awt.Font("HP Simplified Hans", 1, 14)); // NOI18N
+        jlabel_buscar1.setForeground(new java.awt.Color(199, 199, 199));
+        jlabel_buscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/lupa.png"))); // NOI18N
+        jlabel_buscar1.setText("Buscar ");
+        jlabel_buscar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlabel_buscarMouseClicked(evt);
+                jlabel_buscar1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jlabel_buscarMouseEntered(evt);
+                jlabel_buscar1MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jlabel_buscarMouseExited(evt);
+                jlabel_buscar1MouseExited(evt);
             }
         });
-        btn_Buscar.add(jlabel_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
+        btn_Buscar.add(jlabel_buscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
 
         sidebar_panel.add(btn_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 200, 60));
+
+        btn_eliminar.setBackground(new java.awt.Color(37, 38, 39));
+        btn_eliminar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_eliminar.setLayout(new java.awt.BorderLayout());
+
+        jlabel_eliminar.setFont(new java.awt.Font("HP Simplified Hans", 1, 14)); // NOI18N
+        jlabel_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/eliminar.png"))); // NOI18N
+        jlabel_eliminar.setText("Eliminar");
+        jlabel_eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlabel_eliminarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jlabel_eliminarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jlabel_eliminarMouseExited(evt);
+            }
+        });
+        btn_eliminar.add(jlabel_eliminar, java.awt.BorderLayout.CENTER);
+
+        sidebar_panel.add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 200, 60));
 
         getContentPane().add(sidebar_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 200, 650));
 
@@ -253,21 +283,6 @@ public class PrincipalView extends javax.swing.JFrame {
         btn_editar.setBackground(mouseExitColor);
     }//GEN-LAST:event_jlabel_editarMouseExited
 
-   /**
-     * Metodo para que cuando el mouse pase por encima, cambie de color
-     * @param evt 
-     */
-    private void jlabel_buscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_buscarMouseEntered
-        btn_Buscar.setBackground(mouseEnterColor);
-    }//GEN-LAST:event_jlabel_buscarMouseEntered
-    /**
-     * Metodo para que cuando el mouse salga , regrese a su color original
-     * @param evt 
-     */
-    private void jlabel_buscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_buscarMouseExited
-        btn_Buscar.setBackground(mouseExitColor);
-    }//GEN-LAST:event_jlabel_buscarMouseExited
-
     private void btn_agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarMouseClicked
        
         
@@ -319,10 +334,31 @@ public class PrincipalView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jlabel_editarMouseClicked
 
-    private void jlabel_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_buscarMouseClicked
-        this.dispose();
+    private void jlabel_buscar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_buscar1MouseClicked
         new BuscarView().setVisible(true);
-    }//GEN-LAST:event_jlabel_buscarMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jlabel_buscar1MouseClicked
+
+    private void jlabel_buscar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_buscar1MouseEntered
+        btn_Buscar.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_jlabel_buscar1MouseEntered
+
+    private void jlabel_buscar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_buscar1MouseExited
+        btn_Buscar.setBackground(mouseExitColor);
+    }//GEN-LAST:event_jlabel_buscar1MouseExited
+
+    private void jlabel_eliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_eliminarMouseEntered
+        btn_eliminar.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_jlabel_eliminarMouseEntered
+
+    private void jlabel_eliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_eliminarMouseExited
+        btn_eliminar.setBackground(mouseExitColor);
+    }//GEN-LAST:event_jlabel_eliminarMouseExited
+
+    private void jlabel_eliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_eliminarMouseClicked
+        new EliminarView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jlabel_eliminarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -331,16 +367,19 @@ public class PrincipalView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btn_Buscar;
+    private javax.swing.JPanel btn_Buscar1;
     private javax.swing.JPanel btn_agregar;
     private javax.swing.JPanel btn_editar;
+    private javax.swing.JPanel btn_eliminar;
     private javax.swing.JPanel btn_mostrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jlabel_agregarP1;
-    private javax.swing.JLabel jlabel_buscar;
+    private javax.swing.JLabel jlabel_buscar1;
     private javax.swing.JLabel jlabel_editar;
+    private javax.swing.JLabel jlabel_eliminar;
     private javax.swing.JLabel jlabel_mostrar;
     private javax.swing.JPanel panel_barraAccion;
     private javax.swing.JPanel panel_titulo;

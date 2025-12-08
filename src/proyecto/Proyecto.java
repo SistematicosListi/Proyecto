@@ -8,17 +8,20 @@ import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.intellijthemes.*;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 import proyecto.utils.ProductosUtils;
 import proyecto.inventario.InventarioManager;
 
 
-import proyecto.pojo.Eliminacion;
+import proyecto.pojo.Eliminado;
 import proyecto.pojo.Producto;
 
 import javax.swing.SwingUtilities;  // Import faltante para SwingUtilities
 import proyecto.ABB_Productos.Estructura.ABB;
 import proyecto.InterfazGrafica.PrincipalView;
+import static proyecto.inventario.InventarioManager.historialEliminaciones;
+import proyecto.persistencia.eliminadosPersistencia;
 import proyecto.persistencia.productoPersistencia;
 
 
@@ -33,7 +36,9 @@ public class Proyecto {
     
     public static final String DATA_FOLDER = "data/";
     
-    public static final String ARCHIVO1 = "Productos.json";
+    
+    
+    public static  String ARCHIVO1 = "Productos.json";
     public static final String ARCHIVO2 = "productosEliminados.json";
     /**
      * @param args the command line arguments
@@ -48,6 +53,13 @@ public class Proyecto {
             arbol.insertar(p);
         }
         
+        List<Eliminado> historialCargado = eliminadosPersistencia.cargarJson(ARCHIVO2);
+        
+        // Asignar la lista cargada a la lista estática del Manager
+        inventario.historialEliminaciones = historialCargado;
+        
+        
+        
         
         
         
@@ -58,6 +70,17 @@ public class Proyecto {
         
         FlatGradiantoDeepOceanIJTheme.setup();
        new PrincipalView().setVisible(true);
+       
+       System.out.println("\n--- REGISTRO DE HISTORIAL DE ELIMINACIONES ---");
+        
+        if (historialEliminaciones == null || historialEliminaciones.isEmpty()) {
+            System.out.println("El historial de eliminaciones está vacío.");
+            return;
+        }
+        
+        for (Eliminado registro : historialEliminaciones) {
+            System.out.println(registro); 
+        }
        
         
 

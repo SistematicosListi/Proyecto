@@ -6,22 +6,23 @@ package proyecto.pojo;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  *
  * @author aleja
  */
-public class Eliminacion {
+public class Eliminado {
     private String clave;
     private String nombre;
     private String razon;
-    private String fecha;
+    private Date fecha;
 
-    public Eliminacion(String clave, String nombre, String razon, LocalDateTime fecha) {
+    public Eliminado(String clave, String razon, Date fecha) {
         this.clave = clave;
         this.nombre = nombre;
         this.razon = razon;
-        this.fecha = fecha.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        this.fecha = fecha;
     }
 
     public String getClave() {
@@ -48,11 +49,11 @@ public class Eliminacion {
         this.razon = razon;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
     
