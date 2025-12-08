@@ -4,6 +4,11 @@
  */
 package proyecto.InterfazGrafica;
 
+import javax.swing.JOptionPane;
+import static proyecto.Proyecto.ARCHIVO1;
+import static proyecto.Proyecto.arbol;
+import static proyecto.Proyecto.inventario;
+import proyecto.persistencia.productoPersistencia;
 import proyecto.pojo.Producto;
 
 /**
@@ -19,6 +24,9 @@ public class EditarDialog extends javax.swing.JDialog {
     public EditarDialog(java.awt.Frame parent, boolean modal, Producto producto) {
         super(parent, modal);
         initComponents();
+        
+        this.producto = producto;
+        cargarDatosProducto();
     }
 
     /**
@@ -51,9 +59,19 @@ public class EditarDialog extends javax.swing.JDialog {
         jPanel1.setPreferredSize(new java.awt.Dimension(598, 60));
 
         btn_guardar.setText("Guardar");
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_guardar);
 
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_cancelar);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
@@ -187,6 +205,90 @@ public class EditarDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_precioActionPerformed
 
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+        try {
+            String nuevoNombre = txt_nombre.getText();
+        
+        
+            int nuevaCantidad = Integer.parseInt(txt_cantidad.getText());
+            double nuevoPrecio = Double.parseDouble(txt_precio.getText());
+
+       
+        if (nuevoNombre.trim().isEmpty() || nuevaCantidad < 0 || nuevoPrecio < 0) {
+            JOptionPane.showMessageDialog(this, 
+                "El nombre no puede estar vacío y los valores deben ser positivos.", 
+                "Error de Validación", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
+        // Le pasamos el objeto a editar (productoOriginal) y los nuevos valores.
+        boolean exito = inventario.editarProducto(
+            this.producto, 
+            nuevoNombre, 
+            nuevaCantidad, 
+            nuevoPrecio
+        );
+        
+        
+        if (exito) {
+            JOptionPane.showMessageDialog(this, "Producto editado con éxito en el inventario.");
+            this.dispose(); 
+        } else {
+            // Este caso (retorno 'false') solo ocurriría si el Manager no encontrara el producto,
+            // pero como ya lo tenemos, es poco probable.
+            JOptionPane.showMessageDialog(this, "Error al intentar guardar los cambios.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, 
+            "La cantidad y el precio deben ser números válidos.", 
+            "Error de Formato", JOptionPane.ERROR_MESSAGE);
+        }
+        try{
+            productoPersistencia.guardarComoJson(ARCHIVO1, 
+                                                arbol.ordenarDatos(true));
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+            
+        
+    }//GEN-LAST:event_btn_guardarActionPerformed
+    /**
+     * Metodo para cancelar y salir
+     * @param evt 
+     */
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        int confirmacion = JOptionPane.showConfirmDialog(
+            this, 
+            "¿Está seguro que desea salir sin guardar los cambios?", 
+            "Confirmar Cancelación", 
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            
+            this.dispose();
+        }
+    }//GEN-LAST:event_btn_cancelarActionPerformed
+    /**
+     * Metodo para cargar los datos en el Dialog
+     */
+    private void cargarDatosProducto() {
+        
+        txt_clave.setText(producto.getClave()); 
+        txt_clave.setEnabled(false); 
+        
+        // Nombre
+        txt_nombre.setText(producto.getNombre());
+        
+        // Cantidad (Convertir el int a String)
+        txt_cantidad.setText(String.valueOf(producto.getCantidad()));
+        
+        // Precio (Convertir el double a String)
+        txt_precio.setText(String.valueOf(producto.getPrecio()));
+    }  
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;
